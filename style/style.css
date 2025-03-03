@@ -5,15 +5,11 @@ body {
     color: #ffffff; /* Warna teks putih */
     margin: 0;
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;   
+    min-height: 100vh;
+    scroll-behavior: smooth; /* Animasi scroll halus */
+    cursor: url('assets/cursor.svg') 16 16, auto; /* Kursor kustom */
 }
-/* Animasi Kursor dengan Tail */
-body {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="%2364b5f6"><circle cx="16" cy="16" r="8" opacity="0.7"/><circle cx="16" cy="16" r="6" opacity="0.5"/><circle cx="16" cy="16" r="4" opacity="0.3"/></svg>') 16 16, auto;
-}
+
 .container {
     background-color: #112240; /* Warna container gelap */
     border-radius: 15px;
@@ -22,12 +18,15 @@ body {
     max-width: 600px;
     width: 100%;
 }
+
 h1 {
     margin-top: 0;
     color: #64b5f6; /* Warna biru muda untuk judul */
     font-size: 30px;
     text-align: center;
+    font-weight: bold;
 }
+
 h4 {
     margin-top: 0;
     color: #64b5f6; /* Warna biru muda untuk judul */
@@ -41,20 +40,21 @@ h4 {
     margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 .week-box h3 {
     margin-top: 0;
     color: #64b5f6; /* Warna biru muda untuk judul minggu */
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
 }
-.form-group {
-    margin-bottom: 15px;
-}
+
 .form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
     color: #64b5f6; /* Warna biru muda untuk label */
 }
+
 .form-group input, .form-group select {
     width: 100%;
     padding: 8px;
@@ -64,10 +64,12 @@ h4 {
     color: #ffffff; /* Warna teks putih */
     font-size: 14px;
 }
+
 .form-group input:focus, .form-group select:focus {
     border-color: #64b5f6; /* Warna border biru saat fokus */
     outline: none;
 }
+
 button {
     width: 100%;
     padding: 12px;
@@ -80,52 +82,53 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 button:hover {
     background-color: #5698c4; /* Warna tombol biru lebih gelap saat hover */
 }
-.result {
-    text-align: center;
+
+.result-box {
+    background-color: #1e2a47; /* Warna box hasil gelap */
+    border-radius: 10px;
+    padding: 20px;
     margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-.result h2 {
+
+.result-box h2 {
     margin-top: 0;
     color: #64b5f6; /* Warna biru muda untuk judul hasil */
     font-size: 20px;
-}
-.result p {
-    font-size: 18px;
     font-weight: bold;
-    margin: 10px 0;
+    text-align: center;
 }
-.officer-select {
-    margin-top: 20px;
-}
-.officer-select label {
-    display: block;
-    margin-bottom: 5px;
-    color: #64b5f6; /* Warna biru muda untuk label */
-    font-weight: bold;
-}
-.officer-select select {
+
+.result-table {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #233554; /* Warna border gelap */
-    border-radius: 5px;
-    background-color: #233554; /* Warna input gelap */
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.result-table th, .result-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #233554; /* Warna border gelap */
+}
+
+.result-table th {
+    color: #64b5f6; /* Warna biru muda untuk header tabel */
+    font-weight: bold;
+}
+
+.result-table td {
     color: #ffffff; /* Warna teks putih */
-    font-size: 14px;
 }
 
-/* Menghilangkan tombol tambah dan kurang pada input number */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.result-table td span {
+    color: #64b5f6; /* Warna biru muda untuk nilai poin */
+    font-weight: bold;
 }
 
-input[type="number"] {
-    -moz-appearance: textfield; /* Untuk Firefox */
-}
 .scroll-to-top {
     position: fixed;
     bottom: 20px;
@@ -154,4 +157,15 @@ input[type="number"] {
 
 .scroll-to-top:hover {
     background-color: #5698c4;
+}
+
+/* Menghilangkan tombol tambah dan kurang pada input number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Untuk Firefox */
 }
