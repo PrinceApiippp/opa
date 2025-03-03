@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/sapd.ico" type="image/x-icon">
+    <title>OPA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1><img src="assets/img/logo.png" alt="Penalty Icon" width="120" class="mb-3"></h1>
+        <h1>OFFICER PERFORMANCE ASSESMENT</h1>
+        <br>
+    
+        <!-- Form Input -->
+        <div class="form-section">
+            <!-- Minggu 1 -->
+            <div class="week-box">
+                <h4><i class="fas fa-calendar-week"></i> Minggu 1</h3>
+                    <br>
+                <div class="form-group">
+                    <label for="dutyHours1"><i class="fas fa-clock"></i> DUTY HOURS <small class="text-secondary"> (<strong>Dalam menit</strong>)</small>:</label>
+                    <input type="number" id="dutyHours1" required>
+                </div>
+                <div class="form-group">
+                    <label for="fieldActivityReport1"><i class="fa-solid fa-newspaper"></i> FIELD ACTIVITY REPORT <small class="text-secondary"> (<strong>Hari posting</strong>)</small>:</label>
+                    <select id="fieldActivityReport1">
+                        <option value="0">Tidak Membuat</option>
+                        <option value="5">Sabtu</option>
+                        <option value="4">Minggu Siang</option>
+                        <option value="3">Minggu Malam</option>
+                        <option value="2">Senin</option>
+                        <option value="1">Selasa</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Minggu 2 -->
+            <div class="week-box">
+                <h4><i class="fas fa-calendar-week"></i> Minggu 2</h3>
+                    <br>
+                <div class="form-group">
+                    <label for="dutyHours2"><i class="fas fa-clock"></i> DUTY HOURS <small class="text-secondary"> (<strong>Dalam menit</strong>)</small>:</label>
+                    <input type="number" id="dutyHours2" required>
+                </div>
+                <div class="form-group">
+                    <label for="fieldActivityReport2"><i class="fa-solid fa-newspaper"></i> FIELD ACTIVITY REPORT <small class="text-secondary"> (<strong>Hari posting</strong>)</small>:</label>
+                    <select id="fieldActivityReport2">
+                        <option value="0">Tidak Membuat</option>
+                        <option value="5">Sabtu</option>
+                        <option value="4">Minggu Siang</option>
+                        <option value="3">Minggu Malam</option>
+                        <option value="2">Senin</option>
+                        <option value="1">Selasa</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Minggu 3 -->
+            <div class="week-box">
+                <h4><i class="fas fa-calendar-week"></i> Minggu 3</h3>
+                    <br>
+                <div class="form-group">
+                    <label for="dutyHours3"><i class="fas fa-clock"></i> DUTY HOURS <small class="text-secondary"> (<strong>Dalam menit</strong>)</small>:</label>
+                    <input type="number" id="dutyHours3" required>
+                </div>
+                <div class="form-group">
+                    <label for="fieldActivityReport3"><i class="fa-solid fa-newspaper"></i> FIELD ACTIVITY REPORT <small class="text-secondary"> (<strong>Hari posting</strong>)</small>:</label>
+                    <select id="fieldActivityReport3">
+                        <option value="0">Tidak Membuat</option>
+                        <option value="5">Sabtu</option>
+                        <option value="4">Minggu Siang</option>
+                        <option value="3">Minggu Malam</option>
+                        <option value="2">Senin</option>
+                        <option value="1">Selasa</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Minggu 4 -->
+            <div class="week-box">
+                <h4><i class="fas fa-calendar-week"></i> Minggu 4</h3>
+                    <br>
+                <div class="form-group">
+                    <label for="dutyHours4"><i class="fas fa-clock"></i> DUTY HOURS <small class="text-secondary"> (<strong>Dalam menit</strong>)</small>:</label>
+                    <input type="number" id="dutyHours4" required>
+                </div>
+                <div class="form-group">
+                    <label for="fieldActivityReport4"><i class="fa-solid fa-newspaper"></i> FIELD ACTIVITY REPORT <small class="text-secondary"> (<strong>Hari posting</strong>)</small>:</label>
+                    <select id="fieldActivityReport4">
+                        <option value="0">Tidak Membuat</option>
+                        <option value="5">Sabtu</option>
+                        <option value="4">Minggu Siang</option>
+                        <option value="3">Minggu Malam</option>
+                        <option value="2">Senin</option>
+                        <option value="1">Selasa</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Input lainnya -->
+            <div class="form-group">
+                <label for="incidentReport"><i class="fas fa-university"></i> INCIDENT REPORT <small class="text-secondary"> (<strong>Jumlah IR dalam sebulan</strong>)
+                </small>:</label>
+                <input type="number" id="incidentReport" required>
+            </div>
+            <div class="form-group">
+                <label for="officerActivity"><i class="fa-solid fa-user-clock"></i> OFFICER ACTIVITY <small class="text-secondary"> (<strong>Jumlah warrant/unimpound</strong>)
+                </small>:</label>
+                <input type="number" id="officerActivity" required>
+            </div>
+            <div class="form-group">
+                <label for="divisionActivity"><i class="fa-solid fa-user-group"></i> DIVISION ACTIVITY <small class="text-secondary"> (<strong>Nilai dari direktur divisi</strong>)
+                </small>:</label>
+                <input type="number" id="divisionActivity" min="1" max="5" required>
+            </div>
+            <div class="form-group">
+                <label for="ticketRecord"><i class="fa-solid fa-sack-dollar"></i> TICKET RECORD <small class="text-secondary"> (<strong>Jumlah tiket dalam sebulan</strong>)
+                </small>:</label>
+                <input type="number" id="ticketRecord" required>
+            </div>
+    
+            <button type="button" onclick="calculate()">Hitung</button>
+        </div>
+    
+        <!-- Hasil Perhitungan -->
+        <div class="result">
+            <h2><i class="fas fa-chart-line"></i> Hasil:</h2>
+            <p id="totalPoints">-</p>
+            <div class="officer-select">
+                <label for="officerType">Pilih Rank Officer:</label>
+                <select id="officerType" onchange="calculate()">
+                    <option value="5">Officer 1</option>
+                    <option value="6">Officer 2 & 3</option>
+                </select>
+            </div>
+        </div>
+        <footer class="text-center mt-5 text-secondary">
+            <p>&copy; 2025. Developed with <i class="fas fa-heart text-danger"></i> by Apiippp / Clay Amstrong</p>
+        </footer>
+    </div>
+    <!-- Tombol Scroll ke Atas -->
+    <button class="scroll-to-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
