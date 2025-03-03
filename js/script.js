@@ -46,18 +46,20 @@
         const fieldPoints = fieldActivityReport.reduce((a, b) => a + b, 0) / 4;
 
         // Hitung poin INCIDENT REPORT
-        let incidentPoints = 0;
-        if (incidentReport >= 11) {
-            incidentPoints = 5;
-        } else if (incidentReport >= 7) {
-            incidentPoints = 4;
-        } else if (incidentReport >= 4) {
-            incidentPoints = 3;
-        } else if (incidentReport >= 2) {
-            incidentPoints = 2;
-        } else {
-            incidentPoints = 1;
-        }
+    let incidentPoints = 0;
+    if (incidentReport === 0) {
+        incidentPoints = 0; // Jika incidentReport = 0, poin = 0
+    } else if (incidentReport >= 11) {
+        incidentPoints = 5;
+    } else if (incidentReport >= 7) {
+        incidentPoints = 4;
+    } else if (incidentReport >= 4) {
+        incidentPoints = 3;
+    } else if (incidentReport >= 2) {
+        incidentPoints = 2;
+    } else {
+        incidentPoints = 1;
+    }
 
         // Hitung poin OFFICER ACTIVITY
         let officerPoints = 0;
@@ -77,18 +79,20 @@
         const divisionPoints = divisionActivity;
 
         // Hitung poin TICKET RECORD
-        let ticketPoints = 0;
-        if (ticketRecord >= 15) {
-            ticketPoints = 5;
-        } else if (ticketRecord >= 10) {
-            ticketPoints = 4;
-        } else if (ticketRecord >= 7) {
-            ticketPoints = 3;
-        } else if (ticketRecord >= 5) {
-            ticketPoints = 2;
-        } else {
-            ticketPoints = 1;
-        }
+    let ticketPoints = 0;
+    if (ticketRecord === 0) {
+        ticketPoints = 0; // Jika ticketRecord = 0, poin = 0
+    } else if (ticketRecord >= 15) {
+        ticketPoints = 5;
+    } else if (ticketRecord >= 10) {
+        ticketPoints = 4;
+    } else if (ticketRecord >= 7) {
+        ticketPoints = 3;
+    } else if (ticketRecord >= 5) {
+        ticketPoints = 2;
+    } else {
+        ticketPoints = 1;
+    }
 
         // Hitung total poin
         let totalPoints = dutyPoints + fieldPoints + incidentPoints + officerPoints + divisionPoints + ticketPoints;
