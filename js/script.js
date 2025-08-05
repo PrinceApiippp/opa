@@ -13,37 +13,86 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    function toggleWeek5() {
+    const rankValue = document.getElementById('officerType').value;
+    const week5Box = document.getElementById('week5');
+
+    if (rankValue === '5-5week') {
+        week5Box.style.display = 'block';
+    } else {
+        week5Box.style.display = 'none';
+    }
+}
+
     function calculate() {
         // Ambil nilai dari input
+        const officerTypeValue = document.getElementById('officerType').value;
+        const isFiveWeek = officerTypeValue === '5-5week';
+        
+        // Fungsi untuk menentukan keterangan berdasarkan skor akhir
+        function getPerformanceNote(score) {
+            if (score >= 4.5 && score <= 5) return "Extraordinary";
+            if (score >= 3.6) return "Exceed Standards";
+            if (score >= 2.6) return "Meets Standards";
+            if (score >= 2.0) return "Below Standards";
+            return "Incapable";
+        }
+        function getPerformanceColor(note) {
+            switch (note) {
+                case "Extraordinary": return "#4caf50";
+                case "Exceed Standards": return "#8bc34a";
+                case "Meets Standards": return "#ffc107";
+                case "Below Standards": return "#ff9800";
+                case "Incapable": return "#f44336";
+                default: return "#000"; // fallback
+            }
+        }
+
+
         const dutyHours = [
             parseInt(document.getElementById('dutyHours1').value),
             parseInt(document.getElementById('dutyHours2').value),
             parseInt(document.getElementById('dutyHours3').value),
             parseInt(document.getElementById('dutyHours4').value)
         ];
+
         const fieldActivityReport = [
             parseInt(document.getElementById('fieldActivityReport1').value),
             parseInt(document.getElementById('fieldActivityReport2').value),
             parseInt(document.getElementById('fieldActivityReport3').value),
             parseInt(document.getElementById('fieldActivityReport4').value)
         ];
+
+        // Tambahkan week 5 jika aktif
+        if (isFiveWeek) {
+            dutyHours.push(parseInt(document.getElementById('dutyHours5').value));
+            fieldActivityReport.push(parseInt(document.getElementById('fieldActivityReport5').value));
+        }
+
         const incidentReport = parseInt(document.getElementById('incidentReport').value);
         const officerActivity = parseInt(document.getElementById('officerActivity').value);
         const divisionActivity = parseInt(document.getElementById('divisionActivity').value);
         const ticketRecord = parseInt(document.getElementById('ticketRecord').value);
-        const officerType = parseInt(document.getElementById('officerType').value);
+
+        // Tentukan pembagi akhir Total Poin
+        const divisor = isFiveWeek ? 6 : 5;
 
         // Hitung poin DUTY HOURS untuk setiap minggu
+        // Jumlah minggu aktif
+        const activeWeeks = dutyHours.length;
+
+        // Hitung rata-rata poin duty
         let dutyPoints = dutyHours.map(hours => {
             if (hours >= 901) return 5;
             else if (hours >= 701) return 4;
             else if (hours >= 401) return 3;
             else if (hours >= 341) return 2;
             else return 1;
-        }).reduce((a, b) => a + b, 0) / 4;
+        }).reduce((a, b) => a + b, 0) / activeWeeks;
 
-        // Hitung poin FIELD ACTIVITY REPORT untuk setiap minggu
-        const fieldPoints = fieldActivityReport.reduce((a, b) => a + b, 0) / 4;
+        // Hitung rata-rata field report
+        const fieldPoints = fieldActivityReport.reduce((a, b) => a + b, 0) / activeWeeks;
+
 
         // Hitung poin INCIDENT REPORT
     let incidentPoints = 0;
@@ -97,11 +146,16 @@
         // Hitung total poin
         let totalPoints = dutyPoints + fieldPoints + incidentPoints + officerPoints + divisionPoints + ticketPoints;
 
-        // Bagi total poin berdasarkan rank
-        totalPoints = totalPoints / officerType;
+        // Total poin yang sudah dihitung (duty, field, IR, dll)
+        totalPoints = totalPoints / divisor;
 
         // Batasi nilai maksimum total poin menjadi 5
         totalPoints = Math.min(totalPoints, 5);
+
+        // Tentukan keterangan dan warna (setelah totalPoints dihitung)
+        const performanceNote = getPerformanceNote(totalPoints);
+        const performanceColor = getPerformanceColor(performanceNote);
+
 
         // Tampilkan hasil perhitungan dalam tabel
         const resultTable = document.getElementById('resultTable').getElementsByTagName('tbody')[0];
@@ -135,9 +189,14 @@
                 <td><span>${(dutyPoints + fieldPoints + incidentPoints + officerPoints + divisionPoints + ticketPoints).toFixed(2)}</span></td>
             </tr>
             <tr>
-                <td><strong>Total Poin (Dibagi ${officerType})</strong></td>
+                <td><strong>Total Poin (Dibagi ${divisor})</strong></td>
                 <td><span>${totalPoints.toFixed(2)}</span></td>
             </tr>
+            <tr>
+                <td><strong>Keterangan</strong></td>
+                <td><span style="color: ${performanceColor}; font-weight: bold;">${performanceNote}</span></td>
+            </tr>
+
         `;
 
         // Tampilkan total poin
