@@ -75,7 +75,7 @@
         const ticketRecord = parseInt(document.getElementById('ticketRecord').value);
 
         // Tentukan pembagi akhir Total Poin
-        const divisor = isFiveWeek ? 6 : 5;
+        const divisor = (officerTypeValue === '5-5week' || officerTypeValue === '6') ? 6 : 5;
 
         // Hitung poin DUTY HOURS untuk setiap minggu
         // Jumlah minggu aktif
